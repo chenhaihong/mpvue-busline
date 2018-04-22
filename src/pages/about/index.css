@@ -1,0 +1,78 @@
+/*
+ * @Author: erye 
+ * @Date: 2018-04-22 17:55:27 
+ * @Last Modified by: erye
+ * @Last Modified time: 2018-04-22 17:57:55
+ */
+
+/* head */
+
+.head {
+  margin-bottom: 60rpx;
+  padding-top: 60rpx;
+}
+
+.head-logo {
+  margin: 0 auto 20rpx;
+  display: block;
+  width: 120rpx;
+  height: 120rpx;
+}
+
+.head-name {
+  text-align: center;
+}
+
+/* list */
+
+.list-title {
+  margin-bottom: 10rpx;
+  padding: 0 20rpx;
+  font-size: 30rpx;
+  color: #bbb;
+}
+
+.list {
+  margin-bottom: 40rpx;
+}
+
+.list-item {
+  position: relative;
+  padding: 30rpx 20rpx;
+  background: #fff;
+  border-bottom: 1px solid #efefef;
+  overflow: hidden;
+}
+
+.list-item:active {
+  background: #eee;
+  transition: background ease 0.1s;
+}
+
+.list-item:first-child {
+  border-top: 1px solid #efefef;
+}
+
+.list-item-main {
+  display: inline-block;
+  margin-right: 20rpx;
+}
+
+.list-item-sub {
+  display: inline-block;
+  font-size: 28rpx;
+  color: #bbb;
+}
+
+/*  button-share */
+
+.button-share {
+  z-index: 1000;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  opacity: 0;
+  background: black;
+}

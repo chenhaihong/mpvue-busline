@@ -1,0 +1,102 @@
+/** allowTap */
+.allowTap:active {background: #e5e5e5 !important;}
+
+/** font */
+.bold {font-weight: bold;}
+.dark {color: #333;}
+.light {color: #999;}
+
+/** background */
+.bgFFF {background-color: white;}
+.shadow {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background: #000;
+  opacity: 0.3;
+}
+
+/** float */
+.fr {float: right;}
+.fl {float: left;}
+.clb:after, view:before, view:after {
+  content: " ";
+  font-size: 0px;
+  display: block;
+  visibility: hidden;
+  clear: both;
+}
+
+/** margin padding 10 */
+.m10 {margin: 10rpx;}
+.mtb10 {margin: 10rpx 0;}
+.mlr10 {margin: 0 10rpx;}
+.mt10 {margin-top: 10rpx;}
+.mb10 {margin-bottom: 10rpx;}
+.ml10 {margin-left: 10rpx;}
+.mr10 {margin-right: 10rpx}
+
+.p10 {padding: 10rpx;}
+.ptb10 {padding: 10rpx 0;}
+.plr10 {padding: 0 10rpx;}
+.pt10 {padding-top: 10rpx;}
+.pb10 {padding-bottom: 10rpx;}
+.pl10 {padding-left: 10rpx;}
+.pr10 {padding-right: 10rpx;}
+
+/** margin padding 20 */
+.m20 {margin: 20rpx;}
+.mtb20 {margin: 20rpx 0;}
+.mlr20 {margin: 0 20rpx;}
+.mt20 {margin-top: 20rpx;}
+.mb20 {margin-bottom: 20rpx;}
+.ml20 {margin-left: 20rpx;}
+.mr20 {margin-right: 20rpx}
+
+.p20 {padding: 20rpx;}
+.ptb20 {padding: 20rpx 0;}
+.plr20 {padding: 0 20rpx;}
+.pt20 {padding-top: 20rpx;}
+.pb20 {padding-bottom: 20rpx;}
+.pl20 {padding-left: 20rpx;}
+.pr20 {padding-right: 20rpx;}
+
+/** margin padding 30 */
+.m30 {margin: 30rpx;}
+.mtb30 {margin: 30rpx 0;}
+.mlr30 {margin: 0 30rpx;}
+.mt30 {margin-top: 30rpx;}
+.mb30 {margin-bottom: 30rpx;}
+.ml30 {margin-left: 30rpx;}
+.mr30 {margin-right: 30rpx}
+
+.p30 {padding: 30rpx;}
+.ptb30 {padding: 30rpx 0;}
+.plr30 {padding: 0 30rpx;}
+.pt30 {padding-top: 30rpx;}
+.pb30 {padding-bottom: 30rpx;}
+.pl30 {padding-left: 30rpx;}
+.pr30 {padding-right: 30rpx;}
+
+/** margin padding 40 */
+.m40 {margin: 40rpx;}
+.mtb40 {margin: 40rpx 0;}
+.mlr40 {margin: 0 40rpx;}
+.mt40 {margin-top: 40rpx;}
+.mb40 {margin-bottom: 40rpx;}
+.ml40 {margin-left: 40rpx;}
+.mr40 {margin-right: 40rpx}
+
+.p40 {padding: 40rpx;}
+.ptb40 {padding: 40rpx 0;}
+.plr40 {padding: 0 40rpx;}
+.pt40 {padding-top: 40rpx;}
+.pb40 {padding-bottom: 40rpx;}
+.pl40 {padding-left: 40rpx;}
+.pr40 {padding-right: 40rpx;}
+
+
