@@ -1,7 +1,7 @@
 {
   "name": "gong-jiao-kuai-cha",
   "version": "1.0.0",
-  "description": "出行好帮手，提供公交地铁路线导航，公交地铁换乘方案。",
+  "description": "出行好帮手，提供公交地铁路线导航，公交地铁换乘方案，快速查询附近公交地铁站点。",
   "author": "chh <1194445212@qq.com>",
   "private": true,
   "scripts": {
