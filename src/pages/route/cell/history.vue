@@ -4,13 +4,12 @@
     <template v-if="historys.length > 0">
 
       <template v-for="(item, index) in historys">
-
         <div class="item" :key="index" :data-index="index" @click="bindHistoryTap">
 
           <div class="dltBox" :data-index="index" @click="bindHistoryDltOneTap">删除</div>
 
           <div class="blockBox" :style="{right: (item.right ? item.right : 0) + 'px'}" :data-index="index">
-            <image class="icon p40" src="/static/image/route/clock.png"/>
+            <image class="icon p40" src="/static/image/route/clock.png" />
             <div class="textBox ptb40">
               <text class="a">{{item.a.name}}</text>
 
@@ -25,7 +24,7 @@
           </div>
 
         </div>
-      </template> 
+      </template>
 
     </template>
     <template v-else>
@@ -38,7 +37,7 @@
           </div>
         </div>
       </div>
-    
+
     </template>
 
     <div class="clear ptb40" @click="bindClearTap">清空历史记录</div>
@@ -65,9 +64,10 @@ export default {
       const historys = this.historys;
       const history = historys[idx];
 
-      store.commit("updatePlace", { which: "a", place: history.a });
-      store.commit("updatePlace", { which: "b", place: history.b });
-      store.commit("navigateToRouteList");
+      store.commit("route/updatePlace", { which: "a", place: history.a });
+      store.commit("route/updatePlace", { which: "b", place: history.b });
+      store.commit("route/navigateToRouteList");
+      store.commit("list/reset");
     },
     bindClearTap(e) {
       wx.showActionSheet({
@@ -75,14 +75,14 @@ export default {
         itemColor: "#FF3B30",
         success: res => {
           if (res.tapIndex == 0) {
-            store.commit("clearHistorys");
+            store.commit("route/clearHistorys");
           }
         }
       });
     }
   },
   created() {
-    store.commit("initHistorys");
+    store.commit("route/initHistorys");
   }
 };
 </script>

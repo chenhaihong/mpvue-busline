@@ -1,0 +1,75 @@
+/*
+ * @Author: erye 
+ * @Date: 2018-04-22 17:55:27 
+ * @Last Modified by: erye
+ * @Last Modified time: 2018-04-30 13:13:45
+ */
+
+/* head */
+
+.head {
+    & {
+        margin-bottom: 60rpx;
+        padding-top: 60rpx;
+    }
+    .logo {
+        margin: 0 auto 20rpx;
+        display: block;
+        width: 120rpx;
+        height: 120rpx;
+    }
+    .name {
+        text-align: center;
+    }
+}
+
+/* list */
+
+.listTitle {
+    margin-bottom: 10rpx;
+    padding: 0 20rpx;
+    font-size: 30rpx;
+    color: #bbb;
+}
+
+.list {
+    margin-bottom: 40rpx;
+    .item {
+        & {
+            position: relative;
+            padding: 30rpx 20rpx;
+            background: #fff;
+            border-bottom: 1px solid #efefef;
+            overflow: hidden;
+            &:active {
+                background: #eee;
+                transition: background ease 0.1s;
+            }
+            &:first-child {
+                border-top: 1px solid #efefef;
+            }
+        }
+        .main {
+            display: inline-block;
+            margin-right: 20rpx;
+        }
+        .sub {
+            display: inline-block;
+            font-size: 28rpx;
+            color: #bbb;
+        }
+    }
+}
+
+/*  button-share */
+
+.button-share {
+    z-index: 1000;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    opacity: 0;
+    background: black;
+}

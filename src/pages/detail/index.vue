@@ -1,105 +1,60 @@
 <template>
-  <div class="container" @click="clickHandle('test click', $event)">
-
-    <div class="userinfo" @click="bindViewTap">
-      <img class="userinfo-avatar" v-if="userInfo.avatarUrl" :src="userInfo.avatarUrl" background-size="cover" />
-      <div class="userinfo-nickname">
-        <card :text="userInfo.nickName"></card>
-      </div>
-    </div>
-
-    <div class="usermotto">
-      <div class="user-motto">
-        <card :text="motto"></card>
-      </div>
-    </div>
-
-    <form class="form-container">
-      <input type="text" class="form-control" v-model="motto" placeholder="v-model" />
-      <input type="text" class="form-control" v-model.lazy="motto" placeholder="v-model.lazy" />
-    </form>
-    <a href="/pages/counter/main" class="counter">去往Vuex示例页面</a>
+  <div>
+    <!-- 
+      组件不会被销毁。
+      在重新进入公交列表页的时候，会重置列表页数据。
+      因为详情页的数据是直接从列表页的数据module中拿的，所以报错了。
+      
+      因此，这里必须判断是否transit数据存在，如果不存在则不适用组件。
+    -->
+    <overview v-if="is_transit" />
+    <segments v-if="is_transit" />
+    <view class='mb30'></view>
+    <share />
+    <view class='pb40'></view>
   </div>
 </template>
 
 <script>
-import card from "@/components/card";
+import store from "@/store";
+
+import overview from "./cell/overview";
+import segments from "./cell/segments";
+
+import share from "@/components/share";
 
 export default {
   data() {
-    return {
-      motto: "Hello World",
-      userInfo: {}
-    };
+    return {};
   },
 
-  components: {
-    card
-  },
-
-  methods: {
-    bindViewTap() {
-      const url = "../logs/main";
-      wx.navigateTo({ url });
-    },
-    getUserInfo() {
-      // 调用登录接口
-      wx.login({
-        success: () => {
-          wx.getUserInfo({
-            success: res => {
-              this.userInfo = res.userInfo;
-            }
-          });
-        }
-      });
-    },
-    clickHandle(msg, ev) {
-      console.log("clickHandle:", msg, ev);
+  computed: {
+    is_transit() {
+      let index = store.state.list.transit_index;
+      let transit = store.state.list.transits[index];
+      return !!transit;
     }
   },
 
-  created() {
-    // 调用应用实例的方法获取全局数据
-    this.getUserInfo();
+  components: {
+    overview,
+    segments,
+    share
+  },
+
+  methods: {},
+
+  created() {},
+  onShareAppMessage(res) {
+    return {
+      title: "快速查询公交地铁路线、附近站点信息，出行好帮手。",
+      path: "/pages/route/main",
+      imageUrl: "/static/image/logo.png"
+    };
   }
 };
 </script>
 
-<style scoped>
-.userinfo {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
+<style lang="less">
 
-.userinfo-avatar {
-  width: 128rpx;
-  height: 128rpx;
-  margin: 20rpx;
-  border-radius: 50%;
-}
-
-.userinfo-nickname {
-  color: #aaa;
-}
-
-.usermotto {
-  margin-top: 150px;
-}
-
-.form-control {
-  display: block;
-  padding: 0 12px;
-  margin-bottom: 5px;
-  border: 1px solid #ccc;
-}
-
-.counter {
-  display: inline-block;
-  margin: 10px auto;
-  padding: 5px 10px;
-  color: blue;
-  border: 1px solid blue;
-}
 </style>

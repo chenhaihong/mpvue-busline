@@ -1,22 +1,20 @@
 <template>
   <div>
-
-    <place-input />
-    <history />
+    <placeInput />
 
     <scroll-view class="scroll" scroll-y enable-back-to-top scroll-with-animation>
-      <history/>
-      <div class='mb40'></div>
+      <history />
       <share />
     </scroll-view>
-
   </div>
 </template>
 
 <script>
-import placeInput from "@/components/placeInput";
-import history from "@/components/history";
+import placeInput from "./cell/placeInput";
+import history from "./cell/history";
 import share from "@/components/share";
+
+import store from "@/store";
 
 export default {
   data() {
@@ -31,7 +29,23 @@ export default {
 
   methods: {},
 
-  created() {},
+  created() {
+    // load current place
+    store.commit("route/clearPlace");
+    wx.getLocation({
+      type: "gcj02",
+      success: res => {
+        store.commit("route/updatePlace", {
+          which: "a",
+          place: {
+            name: "我的位置",
+            latitude: res.latitude,
+            longitude: res.longitude
+          }
+        });
+      }
+    });
+  },
 
   onShareAppMessage(res) {
     return {
@@ -43,37 +57,6 @@ export default {
 };
 </script>
 
-<style>
-page {
-  overflow-x: hidden;
-}
-
-.place {
-  z-index: 100;
-  position: fixed;
-  top: 0;
-  padding: 20rpx 0;
-  width: 100%;
-  /* height: 200rpx; */
-  color: #fff;
-  background: #4287ff;
-}
-
-.shadow {
-  z-index: 99;
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  background: #000;
-  opacity: 0.3;
-}
-
-.scroll {
-  position: fixed;
-  top: 220rpx;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  width: 100%;
-}
+<style lang="less">
+@import "./index.less";
 </style>

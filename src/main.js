@@ -16,7 +16,7 @@ export default {
       "pages/list/main",
       "pages/detail/main",
 
-      "pages/about/main",
+      "pages/setting/main",
     ],
     "window": {
       "backgroundTextStyle": "dark",
@@ -39,8 +39,8 @@ export default {
           "selectedIconPath": "static/image/tabBar/route@active.png"
         },
         {
-          "pagePath": "pages/about/main",
-          "text": "关于",
+          "pagePath": "pages/setting/main",
+          "text": "设置",
           "iconPath": "static/image/tabBar/about.png",
           "selectedIconPath": "static/image/tabBar/about@active.png"
         }

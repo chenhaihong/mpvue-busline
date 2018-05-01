@@ -5,8 +5,8 @@ const app = new Vue(App)
 app.$mount()
 
 export default {
-    config: {
-      "navigationBarTitleText": "路线"
-    }
+  config: {
+    "navigationBarTitleText": "公交快查",
+    "backgroundColor": "#EFEFEF"
   }
-  
+}

@@ -21,10 +21,10 @@
 
     <div class="columnSwitch" :class="{ rotating: isSwitching }">
       <div class="switch-wrap" @click="bindPlaceSwitcherTap">
-        <image class="switch" src="/static/image/route/switch.png"/>
+        <image class="switch" src="/static/image/route/switch.png" />
       </div>
       <div class="search-wrap" @click="bindPlaceSearchTap">
-        <image class="search" src="/static/image/route/search.png"/>
+        <image class="search" src="/static/image/route/search.png" />
       </div>
     </div>
 
@@ -59,37 +59,39 @@ export default {
   },
   methods: {
     bindPlaceInputTap(e) {
-      const which = e.currentTarget.dataset.which;
-
       wx.chooseLocation({
         success: res => {
-          store.commit("updatePlace", {
+          let which = e.currentTarget.dataset.which;
+          let name = res.name ? res.name : res.address;
+          store.commit("route/updatePlace", {
             which,
             place: {
-              name: res.name ? res.name : res.address,
+              name,
               latitude: res.latitude,
               longitude: res.longitude
             }
           });
 
           if (this.isABOk) {
-            store.commit("saveHistory");
-            store.commit("navigateToRouteList");
+            store.commit("route/saveHistory");
+            store.commit("list/reset");
+            store.commit("route/navigateToRouteList");
           }
         }
       });
     },
     bindPlaceSwitcherTap(e) {
       this.isSwitching = true;
-      store.commit("switchAB");
+      store.commit("route/switchAB");
 
       setTimeout(() => {
         this.isSwitching = false;
       }, 300);
 
       if (this.isABOk) {
-        store.commit("saveHistory");
-        store.commit("navigateToRouteList");
+        store.commit("route/saveHistory");
+        store.commit("list/reset");
+        store.commit("route/navigateToRouteList");
       }
     },
     bindPlaceSearchTap(e) {
@@ -112,27 +114,10 @@ export default {
         return false;
       }
 
-      store.commit("saveHistory");
-      store.commit("navigateToRouteList");
+      store.commit("route/saveHistory");
+      store.commit("list/reset");
+      store.commit("route/navigateToRouteList");
     }
-  },
-
-  created() {
-    // load current place
-    store.commit("clearPlace");
-    wx.getLocation({
-      type: "gcj02",
-      success: res => {
-        store.commit("updatePlace", {
-          which: "a",
-          place: {
-            name: "我的位置",
-            latitude: res.latitude,
-            longitude: res.longitude
-          }
-        });
-      }
-    });
   }
 };
 </script>

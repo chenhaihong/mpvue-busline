@@ -1,31 +1,33 @@
 <template>
-  <div>
-    <div class="head">
-      <image class="head-logo" mode="scaleToFill" src="/static/image/logo.png" />
-      <div class="head-name">公交快查</div>
-    </div>
+  <view>
 
-    <div class="list-title">设置</div>
-    <div class="list">
-      <div class="list-item" @click="bindSettingTap">
-        <div class="list-item-main">设置</div>
-        <div class="list-item-sub">如果不能查询请点这里，允许使用地址位置</div>
-      </div>
-    </div>
+    <view class="head">
+      <image class="logo" mode="scaleToFill" src="/static/image/logo.png" />
+      <view class="name">公交快查</view>
+    </view>
 
-    <div class="list-title">操作</div>
-    <div class="list">
-      <div class="list-item" @click="bindClearTap">
-        <div class="list-item-main">清除缓存</div>
-        <div class="list-item-sub">清空历史查询记录</div>
-      </div>
-      <div class="list-item">
-        <div class="list-item-main">分享</div>
-        <div class="list-item-sub">赠人玫瑰，手有余香</div>
+    <view class="listTitle">设置</view>
+    <view class="list">
+      <view class="item" @click="bindSettingTap">
+        <view class="main">设置</view>
+        <view class="sub">如果不能查询请点这里，允许使用地址位置</view>
+      </view>
+      <view class="item" @click="bindClearTap">
+        <view class="main">清除缓存</view>
+        <view class="sub">清空历史查询记录</view>
+      </view>
+    </view>
+
+    <view class="listTitle">操作</view>
+    <view class="list">
+      <view class="item">
+        <view class="main">分享</view>
+        <view class="sub">赠人玫瑰，手有余香</view>
         <button class="button-share" open-type="share"></button>
-      </div>
-    </div>
-  </div>
+      </view>
+    </view>
+
+  </view>
 </template>
 
 <script>
@@ -55,12 +57,11 @@ export default {
     },
 
     bindClearTap() {
-      const KEY_HISTORY = "History";
       const success = res => {
         if (res.tapIndex == 0) {
-          wx.setStorageSync(KEY_HISTORY, []);
+          wx.clearStorageSync();
           wx.reLaunch({
-            url: "/pages/about/main"
+            url: "/pages/setting/main"
           });
         }
       };
@@ -85,6 +86,6 @@ export default {
 };
 </script>
 
-<style scoped>
-@import "./index.css";
+<style lang="less">
+@import "./index.less";
 </style>

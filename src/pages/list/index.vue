@@ -1,105 +1,86 @@
 <template>
-  <div class="container" @click="clickHandle('test click', $event)">
+  <div>
+    <busSelector />
 
-    <div class="userinfo" @click="bindViewTap">
-      <img class="userinfo-avatar" v-if="userInfo.avatarUrl" :src="userInfo.avatarUrl" background-size="cover" />
-      <div class="userinfo-nickname">
-        <card :text="userInfo.nickName"></card>
-      </div>
-    </div>
+    <scroll-view class="scrollBody" scroll-y enable-back-to-top scroll-with-animation>
+      <overview />
+      <busList />
 
-    <div class="usermotto">
-      <div class="user-motto">
-        <card :text="motto"></card>
-      </div>
-    </div>
-
-    <form class="form-container">
-      <input type="text" class="form-control" v-model="motto" placeholder="v-model" />
-      <input type="text" class="form-control" v-model.lazy="motto" placeholder="v-model.lazy" />
-    </form>
-    <a href="/pages/counter/main" class="counter">去往Vuex示例页面</a>
+      <view class="mb30"></view>
+      <share />
+    </scroll-view>
   </div>
 </template>
 
 <script>
-import card from "@/components/card";
+import busSelector from "./cell/busSelector";
+import overview from "./cell/overview";
+import busList from "./cell/busList";
+import share from "@/components/share";
+
+import store from "@/store";
 
 export default {
   data() {
-    return {
-      motto: "Hello World",
-      userInfo: {}
-    };
+    return {};
   },
 
   components: {
-    card
+    busSelector,
+    overview,
+    busList,
+    share
   },
 
-  methods: {
-    bindViewTap() {
-      const url = "../logs/main";
-      wx.navigateTo({ url });
-    },
-    getUserInfo() {
-      // 调用登录接口
-      wx.login({
-        success: () => {
-          wx.getUserInfo({
-            success: res => {
-              this.userInfo = res.userInfo;
-            }
-          });
-        }
-      });
-    },
-    clickHandle(msg, ev) {
-      console.log("clickHandle:", msg, ev);
-    }
+  methods: {},
+
+  onShareAppMessage(res) {
+    const place = JSON.parse(this.$root.$mp.query.place);
+    let title = `公交路线：${place.a.name}→${place.b.name}`;
+    let path = `/pages/list/main?place=${JSON.stringify(place)}`;
+
+    return {
+      title,
+      path
+    };
   },
 
-  created() {
-    // 调用应用实例的方法获取全局数据
-    this.getUserInfo();
+  onShow() {
+    // const place = JSON.parse(this.$root.$mp.query.place);
+    // store.commit("list/setPlace", place);
+    // store.dispatch("list/getBusList");
+  },
+
+  onReady() {
+    const place = JSON.parse(this.$root.$mp.query.place);
+    store.commit("list/setPlace", place);
+    store.dispatch("list/getBusList");
   }
 };
 </script>
 
-<style scoped>
-.userinfo {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+<style lang="less">
+.selectorBox {
+  z-index: 10;
+  position: fixed;
 }
 
-.userinfo-avatar {
-  width: 128rpx;
-  height: 128rpx;
-  margin: 20rpx;
-  border-radius: 50%;
+.selector {
+  height: 120rpx;
 }
 
-.userinfo-nickname {
-  color: #aaa;
+.pickerBox {
+  width: 50%;
 }
 
-.usermotto {
-  margin-top: 150px;
+.shadow {
+  z-index: -1;
 }
 
-.form-control {
-  display: block;
-  padding: 0 12px;
-  margin-bottom: 5px;
-  border: 1px solid #ccc;
-}
-
-.counter {
-  display: inline-block;
-  margin: 10px auto;
-  padding: 5px 10px;
-  color: blue;
-  border: 1px solid blue;
+.scrollBody {
+  position: fixed;
+  top: 120rpx;
+  bottom: 0;
+  width: 100%;
 }
 </style>
