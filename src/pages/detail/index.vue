@@ -1,11 +1,17 @@
 <template>
   <div>
     <!-- 
-      组件不会被销毁。
-      在重新进入公交列表页的时候，会重置列表页数据。
-      因为详情页的数据是直接从列表页的数据module中拿的，所以报错了。
+      组件对象一致常驻内存，不会被销毁。
       
-      因此，这里必须判断是否transit数据存在，如果不存在则不适用组件。
+      由于，在重新进入公交列表页的时候，我会重置掉列表页数据，如下：
+      store.state.list.transit_index = null
+      store.state.list.transits = []
+      所以结果数据 transit = transits[transit_index] 拿到的是一个 underfined。
+
+      详情页的 overview、segments 这两个组件都是用了 transit 的，但是没有做异常屏蔽处理逻辑，
+      导致组件的使用出现了错误。
+      
+      因此，这里先做一层判断，判断 transit 是否存在，如果不存在则不使用组件。
     -->
     <overview v-if="is_transit" />
     <segments v-if="is_transit" />

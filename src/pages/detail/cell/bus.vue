@@ -17,12 +17,12 @@
           <text class="dot">·</text>
           <text class="text">{{fmt_duration}}</text>
         </view>
-        <!-- <view class="stop">
-          <block v-for="(item, idx) in busline.via_stops" :wx:key="name">
-            <text :key="name" v-if="idx>0">→</text>
-            <text :key="name">{{item.name}}</text>
-          </block>
-        </view> -->
+        <view class="stop">
+          <template v-for="(item, idx) in busline.via_stops" :wx:key="name">
+            <text :key="item.item" v-if="idx>0">→</text>
+            <text :key="item.item">{{item.name}}</text>
+          </template>
+        </view>
         <view class="stop arrival_stop">
           <text>{{busline.arrival_stop.name}}</text>
           <text v-if="exit.name" class="exit">{{exit.name}}出站</text>
@@ -62,12 +62,12 @@ export default {
   width: 100%;
   font-size: 30rpx;
   border-radius: 10rpx;
+
   .busline--head {
     position: relative;
     padding: 20rpx;
     font-size: 36rpx;
     font-weight: bold;
-    line-height: 50rpx;
     color: #fff;
     background-color: rgb(144, 211, 147);
     border-top-left-radius: 6rpx;

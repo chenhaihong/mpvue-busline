@@ -27,6 +27,14 @@
       </view>
     </view>
 
+    <!-- <view class="listTitle">新功能</view>
+    <view class="list">
+      <view class="item" @click="bindSoterTap">
+        <view class="main">生物认证</view>
+        <view class="sub">SoterAuthentication</view>
+      </view>
+    </view> -->
+
   </view>
 </template>
 
@@ -59,10 +67,8 @@ export default {
     bindClearTap() {
       const success = res => {
         if (res.tapIndex == 0) {
-          wx.clearStorageSync();
-          wx.reLaunch({
-            url: "/pages/setting/main"
-          });
+          // wx.clearStorageSync();
+          store.commit("route/clearHistorys");
         }
       };
 
@@ -72,6 +78,29 @@ export default {
         success
       });
     }
+
+    // bindSoterTap() {
+    //   wx.checkIsSupportSoterAuthentication({
+    //     success(res) {
+    //       console.log(res);
+    //       // res.supportMode = [] 不具备任何被SOTER支持的生物识别方式
+    //       // res.supportMode = ['fingerPrint'] 只支持指纹识别
+    //       // res.supportMode = ['fingerPrint', 'facial'] 支持指纹识别和人脸识别
+    //     }
+    //   });
+
+    //   wx.startSoterAuthentication({
+    //     requestAuthModes: ["facial"],
+    //     challenge: "123456",
+    //     authContent: "请用指纹解锁",
+    //     success(res) {
+    //       console.log(res);
+    //     },
+    //     fail(err) {
+    //       console.log(err);
+    //     }
+    //   });
+    // }
   },
 
   created() {},

@@ -1,6 +1,6 @@
-# gong-jiao-kuai-cha
+# mpvue-busline
 
-> 出行好帮手，提供公交地铁路线导航，公交地铁换乘方案。
+> 提供公交地铁路线导航、公交地铁换乘方案。
 
 ## Build Setup
 

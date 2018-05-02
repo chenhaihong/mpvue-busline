@@ -10,7 +10,7 @@
 	"miniprogramRoot": "./dist/",
 	"compileType": "miniprogram",
 	"appid": "wxf189f59621ef4460",
-	"projectname": "gong-jiao-kuai-cha",
+	"projectname": "mpvue-busline",
 	"condition": {
 		"search": {
 			"current": -1,
