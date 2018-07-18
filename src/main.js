@@ -16,13 +16,15 @@ export default {
       "pages/list/main",
       "pages/detail/main",
 
+      "pages/stations/main",
+
       "pages/setting/main",
     ],
     "window": {
       "backgroundTextStyle": "dark",
       "backgroundColor": "#EFEFEF",
       "navigationBarBackgroundColor": "#4287FF",
-      "navigationBarTitleText": "公交快查",
+      "navigationBarTitleText": "地铁公交车来了",
       "navigationBarTextStyle": "white"
     },
     "tabBar": {
@@ -37,6 +39,12 @@ export default {
           "text": "路线",
           "iconPath": "static/image/tabBar/route.png",
           "selectedIconPath": "static/image/tabBar/route@active.png"
+        },
+        {
+          "pagePath": "pages/stations/main",
+          "text": "附近公交站",
+          "iconPath": "static/image/tabBar/busstop.png",
+          "selectedIconPath": "static/image/tabBar/busstop@active.png"
         },
         {
           "pagePath": "pages/setting/main",

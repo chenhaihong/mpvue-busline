@@ -5,6 +5,7 @@ import Vuex from 'vuex'
 
 import RouteModule from './modules/route'
 import ListModule from './modules/list'
+import StationsModule from './modules/stations'
 
 Vue.use(Vuex)
 
@@ -12,6 +13,7 @@ const store = new Vuex.Store({
   modules: {
     route: RouteModule,
     list: ListModule,
+    stations: StationsModule,
   },
 
   state: {

@@ -81,7 +81,8 @@ AMapWX.prototype.getWxLocation = function (a, b) {
 }, AMapWX.prototype.getWeather = function (a) {
     function d(d) {
         var e = "base";
-        a.type && "forecast" == a.type && (e = "all"), wx.request({
+        a.type && "forecast" == a.type && (e = "all"), 
+        wx.request({
             url: "https://restapi.amap.com/v3/weather/weatherInfo",
             data: {
                 key: b.key,
@@ -128,9 +129,15 @@ AMapWX.prototype.getWxLocation = function (a, b) {
                     return b
                 }
                 var d, e;
-                b.data.status && "1" == b.data.status ? b.data.lives ? (d = b.data.lives, d && d.length > 0 && (d = d[0], e = c(d), e["liveData"] = d, a.success(e))) : b.data.forecasts && b.data.forecasts[0] && a.success({
-                    forecast: b.data.forecasts[0]
-                }) : a.fail({
+                b.data.status && "1" == b.data.status ? 
+                    b.data.lives ? (
+                        d = b.data.lives, 
+                        d && d.length > 0 && ( d = d[0], e = c(d), e["liveData"] = d, a.success(e) )
+                    ) 
+                    : b.data.forecasts && b.data.forecasts[0] && a.success({
+                        forecast: b.data.forecasts[0]
+                    })
+                : a.fail({
                     errCode: b.data.infocode,
                     errMsg: b.data.info
                 })
@@ -192,7 +199,9 @@ AMapWX.prototype.getWxLocation = function (a, b) {
             sdkversion: c.sdkversion,
             logversion: c.logversion
         };
-        a.querytypes && (e["types"] = a.querytypes), a.querykeywords && (e["keywords"] = a.querykeywords), wx.request({
+        a.querytypes && (e["types"] = a.querytypes), 
+        a.querykeywords && (e["keywords"] = a.querykeywords), 
+        wx.request({
             url: "https://restapi.amap.com/v3/place/around",
             data: e,
             method: "GET",
@@ -291,7 +300,13 @@ AMapWX.prototype.getWxLocation = function (a, b) {
             sdkversion: c.sdkversion,
             logversion: c.logversion
         };
-    a.origin && (d["origin"] = a.origin), a.destination && (d["destination"] = a.destination), a.strategy && (d["strategy"] = a.strategy), a.waypoints && (d["waypoints"] = a.waypoints), a.avoidpolygons && (d["avoidpolygons"] = a.avoidpolygons), a.avoidroad && (d["avoidroad"] = a.avoidroad), wx.request({
+    a.origin && (d["origin"] = a.origin), 
+    a.destination && (d["destination"] = a.destination), 
+    a.strategy && (d["strategy"] = a.strategy), 
+    a.waypoints && (d["waypoints"] = a.waypoints), 
+    a.avoidpolygons && (d["avoidpolygons"] = a.avoidpolygons), 
+    a.avoidroad && (d["avoidroad"] = a.avoidroad), 
+    wx.request({
         url: "https://restapi.amap.com/v3/direction/driving",
         data: d,
         method: "GET",
@@ -352,7 +367,14 @@ AMapWX.prototype.getWxLocation = function (a, b) {
             sdkversion: c.sdkversion,
             logversion: c.logversion
         };
-    a.origin && (d["origin"] = a.origin), a.destination && (d["destination"] = a.destination), a.strategy && (d["strategy"] = a.strategy), a.city && (d["city"] = a.city), a.cityd && (d["cityd"] = a.cityd), a.date && (d["date"] = a.date), a.date && (d["time"] = a.time), wx.request({
+    a.origin && (d["origin"] = a.origin), 
+    a.destination && (d["destination"] = a.destination), 
+    a.strategy && (d["strategy"] = a.strategy), 
+    a.city && (d["city"] = a.city), 
+    a.cityd && (d["cityd"] = a.cityd), 
+    a.date && (d["date"] = a.date), // 自己添加的代码
+    a.date && (d["time"] = a.time), // 自己添加的代码
+    wx.request({
         url: "https://restapi.amap.com/v3/direction/transit/integrated",
         data: d,
         method: "GET",
