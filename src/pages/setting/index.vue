@@ -3,7 +3,7 @@
 
     <view class="head">
       <image class="logo" mode="scaleToFill" src="/static/image/logo.png" />
-      <view class="name">公交快查</view>
+      <view class="name">地铁公交车来了</view>
     </view>
 
     <view class="listTitle">设置</view>
