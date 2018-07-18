@@ -24,7 +24,7 @@ export default {
     },
     height() {
       let sysInfo = wx.getSystemInfoSync();
-      let h = sysInfo.windowHeight * 0.6; // 地图的高度，单位像素
+      let h = sysInfo.windowHeight * 0.5; // 地图的高度，单位像素
       return h;
     },
     controls() {
@@ -82,7 +82,7 @@ export default {
 <style lang="less" scoped>
 #stations_map {
   width: 100%;
-  height: 400px;
+  height: 300px;
   border-bottom: 1px solid #ccc;
 }
 </style>

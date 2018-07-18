@@ -3,10 +3,12 @@
     <StationsMap />
     <StationsSwiper />
     <StationDetail />
+    <Share />
   </view>
 </template>
 
 <script>
+import Share from "@/components/share";
 import StationsMap from "./cell/stationsMap";
 import StationsSwiper from "./cell/stationsSwiper";
 import StationDetail from "./cell/stationDetail";
@@ -20,6 +22,7 @@ export default {
   computed: {},
 
   components: {
+    Share,
     StationsMap,
     StationsSwiper,
     StationDetail

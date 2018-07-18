@@ -6,7 +6,7 @@ app.$mount()
 
 export default {
   config: {
-    "navigationBarTitleText": "公交快查",
+    "navigationBarTitleText": "公交路线",
     "backgroundColor": "#EFEFEF"
   }
 }

@@ -52,7 +52,7 @@ export default {
 
 <style lang="less" scoped>
 .detail {
-  margin-bottom: 20rpx;
+  margin-bottom: 40rpx;
   font-size: 30rpx;
   background: #fff;
   .row {
