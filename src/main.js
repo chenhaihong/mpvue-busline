@@ -13,10 +13,12 @@ export default {
     // 页面前带有 ^ 符号的，会被编译成首页，其他页面可以选填，我们会自动把 webpack entry 里面的入口页面加进去
     "pages": [
       "^pages/route/main",
-      "pages/list/main",
-      "pages/detail/main",
+      "pages/transit_list/main",
+      "pages/transit_detail/main",
 
-      "pages/stations/main",
+      "pages/station_list/main",
+
+      "pages/metro_list/main",
 
       "pages/setting/main",
     ],
@@ -41,16 +43,22 @@ export default {
           "selectedIconPath": "static/image/tabBar/route@active.png"
         },
         {
-          "pagePath": "pages/stations/main",
+          "pagePath": "pages/station_list/main",
           "text": "附近公交站",
           "iconPath": "static/image/tabBar/busstop.png",
           "selectedIconPath": "static/image/tabBar/busstop@active.png"
         },
         {
+          "pagePath": "pages/metro_list/main",
+          "text": "附近地铁站",
+          "iconPath": "static/image/tabBar/metro.png",
+          "selectedIconPath": "static/image/tabBar/metro@active.png"
+        },
+        {
           "pagePath": "pages/setting/main",
           "text": "设置",
-          "iconPath": "static/image/tabBar/about.png",
-          "selectedIconPath": "static/image/tabBar/about@active.png"
+          "iconPath": "static/image/tabBar/setting.png",
+          "selectedIconPath": "static/image/tabBar/setting@active.png"
         }
       ]
     },

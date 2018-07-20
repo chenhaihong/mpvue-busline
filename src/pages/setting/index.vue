@@ -1,29 +1,30 @@
 <template>
   <view>
 
-    <view class="head">
+    <!-- <view class="head">
       <image class="logo" mode="scaleToFill" src="/static/image/logo.png" />
       <view class="name">地铁公交车来了</view>
-    </view>
+    </view> -->
 
-    <view class="listTitle">设置</view>
+    <!-- <view class="listTitle">设置</view> -->
     <view class="list">
       <view class="item" @click="bindSettingTap">
         <view class="main">设置</view>
         <view class="sub">如果不能查询请点这里，允许使用地址位置</view>
+        <button class="button" open-type="openSetting"></button>
       </view>
       <view class="item" @click="bindClearTap">
         <view class="main">清除缓存</view>
-        <view class="sub">清空历史查询记录</view>
+        <!-- <view class="sub">清空历史查询记录</view> -->
       </view>
     </view>
 
-    <view class="listTitle">操作</view>
+    <!-- <view class="listTitle">操作</view> -->
     <view class="list">
       <view class="item">
         <view class="main">分享</view>
-        <view class="sub">赠人玫瑰，手有余香</view>
-        <button class="button-share" open-type="share"></button>
+        <!-- <view class="sub">赠人玫瑰，手有余香</view> -->
+        <button class="button" open-type="share"></button>
       </view>
     </view>
 
@@ -35,10 +36,14 @@
       </view>
     </view> -->
 
+    <view class="pb20" />
+    <share />
+
   </view>
 </template>
 
 <script>
+import share from "@/components/share";
 import store from "@/store";
 
 export default {
@@ -46,7 +51,9 @@ export default {
     return {};
   },
 
-  components: {},
+  components: {
+    share
+  },
 
   methods: {
     bindSettingTap() {
@@ -107,7 +114,7 @@ export default {
 
   onShareAppMessage(res) {
     return {
-      title: "快速查询公交地铁路线、附近站点信息，出行好帮手。",
+      title: "公交查询小帮手",
       path: "/pages/route/main",
       imageUrl: "/static/image/logo.png"
     };

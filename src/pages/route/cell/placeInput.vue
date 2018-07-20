@@ -74,7 +74,7 @@ export default {
 
           if (this.isABOk) {
             store.commit("route/saveHistory");
-            store.commit("list/reset");
+            store.commit("transit_list/reset");
             store.commit("route/navigateToRouteList");
           }
         }
@@ -90,7 +90,7 @@ export default {
 
       if (this.isABOk) {
         store.commit("route/saveHistory");
-        store.commit("list/reset");
+        store.commit("transit_list/reset");
         store.commit("route/navigateToRouteList");
       }
     },
@@ -115,7 +115,7 @@ export default {
       }
 
       store.commit("route/saveHistory");
-      store.commit("list/reset");
+      store.commit("transit_list/reset");
       store.commit("route/navigateToRouteList");
     }
   }

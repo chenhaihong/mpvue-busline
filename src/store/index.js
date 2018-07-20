@@ -4,16 +4,18 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 
 import RouteModule from './modules/route'
-import ListModule from './modules/list'
-import StationsModule from './modules/stations'
+import TransitListModule from './modules/transit_list'
+import StationListModule from './modules/station_list'
+import MetroListModule from './modules/metro_list'
 
 Vue.use(Vuex)
 
 const store = new Vuex.Store({
   modules: {
     route: RouteModule,
-    list: ListModule,
-    stations: StationsModule,
+    transit_list: TransitListModule,
+    station_list: StationListModule,
+    metro_list: MetroListModule,
   },
 
   state: {

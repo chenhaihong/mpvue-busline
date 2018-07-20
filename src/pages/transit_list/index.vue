@@ -34,27 +34,27 @@ export default {
 
   methods: {},
 
+  onShow() {
+    // const place = JSON.parse(this.$root.$mp.query.place);
+    // store.commit("transit_list/setPlace", place);
+    // store.dispatch("transit_list/getBusList");
+  },
+
+  onReady() {
+    const place = JSON.parse(this.$root.$mp.query.place);
+    store.commit("transit_list/setPlace", place);
+    store.dispatch("transit_list/getBusList");
+  },
+
   onShareAppMessage(res) {
     const place = JSON.parse(this.$root.$mp.query.place);
     let title = `公交路线：${place.a.name}→${place.b.name}`;
-    let path = `/pages/list/main?place=${JSON.stringify(place)}`;
+    let path = `/pages/transit_list/main?place=${JSON.stringify(place)}`;
 
     return {
       title,
       path
     };
-  },
-
-  onShow() {
-    // const place = JSON.parse(this.$root.$mp.query.place);
-    // store.commit("list/setPlace", place);
-    // store.dispatch("list/getBusList");
-  },
-
-  onReady() {
-    const place = JSON.parse(this.$root.$mp.query.place);
-    store.commit("list/setPlace", place);
-    store.dispatch("list/getBusList");
   }
 };
 </script>

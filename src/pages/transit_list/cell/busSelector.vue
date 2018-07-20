@@ -58,19 +58,19 @@ export default {
   },
   computed: {
     which() {
-      return store.state.list.params.which;
+      return store.state.transit_list.params.which;
     },
     date() {
-      return store.state.list.params.date;
+      return store.state.transit_list.params.date;
     },
     time() {
-      return store.state.list.params.time;
+      return store.state.transit_list.params.time;
     },
     strategyIndex() {
-      return store.state.list.params.strategyIndex;
+      return store.state.transit_list.params.strategyIndex;
     },
     strategies() {
-      return store.state.list.strategies;
+      return store.state.transit_list.strategies;
     }
   },
   methods: {
@@ -80,50 +80,50 @@ export default {
         which = "none";
       }
 
-      store.commit("list/updateParam", {
+      store.commit("transit_list/updateParam", {
         name: "which",
         value: which
       });
     },
     bindStrategyTap(e) {
-      store.commit("list/updateParam", {
+      store.commit("transit_list/updateParam", {
         name: "which",
         value: "none"
       });
     },
     bindDateChange(e) {
-      store.commit("list/updateParam", {
+      store.commit("transit_list/updateParam", {
         name: "date",
         value: e.mp.detail.value
       });
     },
     bindTimeChange(e) {
-      store.commit("list/updateParam", {
+      store.commit("transit_list/updateParam", {
         name: "time",
         value: e.mp.detail.value
       });
     },
     bindStrategyChange(e) {
-      store.commit("list/updateParam", {
+      store.commit("transit_list/updateParam", {
         name: "strategyIndex",
         value: e.mp.detail.value
       });
-      store.dispatch("list/getBusList");
+      store.dispatch("transit_list/getBusList");
     },
     // 隐藏遮罩层
     bindShadowTap(e) {
-      store.commit("list/updateParam", {
+      store.commit("transit_list/updateParam", {
         name: "which",
         value: "none"
       });
     },
     // 搜索路线列表
     bindConfirmTap(e) {
-      store.commit("list/updateParam", {
+      store.commit("transit_list/updateParam", {
         name: "which",
         value: "none"
       });
-      store.dispatch("list/getBusList");
+      store.dispatch("transit_list/getBusList");
     }
   }
 };

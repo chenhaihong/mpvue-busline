@@ -11,7 +11,7 @@ const aMap = new amapFile.AMapWX({
   key: '0c8c32fa61ad5d5250bbd4d2ab662bcc',
 });
 
-const StationsModule = {
+const StationListModule = {
   namespaced: true,
 
   state: {
@@ -117,7 +117,7 @@ const StationsModule = {
       let center = state.centerLocation
       // 获取站点数据
       aMap.getPoiAround({
-        querykeywords: '公交地铁',
+        querykeywords: '公交站',
         success: (data) => {
           wx.stopPullDownRefresh();
 
@@ -184,4 +184,4 @@ const StationsModule = {
   },
 }
 
-export default StationsModule
+export default StationListModule

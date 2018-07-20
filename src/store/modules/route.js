@@ -1,6 +1,6 @@
 /*
- * @Author: erye 
- * @Date: 2018-04-30 15:43:18 
+ * @Author: erye
+ * @Date: 2018-04-30 15:43:18
  * @Last Modified by: erye
  * @Last Modified time: 2018-04-30 21:32:28
  */
@@ -40,7 +40,7 @@ const RouteModule = {
             });
 
             wx.navigateTo({
-                'url': `/pages/list/main?place=${place}`,
+                'url': `/pages/transit_list/main?place=${place}`,
             });
         },
 

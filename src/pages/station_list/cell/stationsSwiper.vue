@@ -24,10 +24,10 @@ export default {
 
   computed: {
     current() {
-      return store.state.stations.current;
+      return store.state.station_list.current;
     },
     markers() {
-      return store.state.stations.stations;
+      return store.state.station_list.stations;
     }
   },
 
@@ -38,10 +38,10 @@ export default {
 
       // 通过手指移动，将地图中心移到 marker
       if (source === "touch") {
-        store.commit("stations/updateCurrent", current);
+        store.commit("station_list/updateCurrent", current);
 
-        let marker = store.state.stations.stations[current];
-        store.commit("stations/updateCenterLocation", {
+        let marker = store.state.station_list.stations[current];
+        store.commit("station_list/updateCenterLocation", {
           name: marker.name,
           latitude: marker.latitude,
           longitude: marker.longitude

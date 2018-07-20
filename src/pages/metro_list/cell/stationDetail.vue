@@ -23,12 +23,8 @@ export default {
 
   computed: {
     marker() {
-      try {
-        const current = store.state.stations.current;
-        return store.state.stations.stations[current];
-      } catch (error) {
-        return {};
-      }
+      const current = store.state.metro_list.current;
+      return store.state.metro_list.stations[current] || {};
     },
     types() {
       try {

@@ -18,8 +18,8 @@ import * as helpers from "@/utils/helpers";
 import store from "@/store";
 
 function getTransit() {
-  let index = store.state.list.transit_index;
-  let transit = store.state.list.transits[index];
+  let index = store.state.transit_list.transit_index;
+  let transit = store.state.transit_list.transits[index];
   return transit;
 }
 

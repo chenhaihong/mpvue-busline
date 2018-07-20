@@ -30,28 +30,28 @@ export default {
 
   methods: {},
 
-  created() {
-    store.dispatch("stations/getCenter").then(() => {
-      store.dispatch("stations/getStations");
-    });
-  },
+  created() {},
 
   onShow() {},
 
-  onReady() {},
-
-  onShareAppMessage(res) {
-    return {
-      title: "快速查询公交地铁路线、附近站点信息，出行好帮手。",
-      path: "/pages/route/main",
-      imageUrl: "/static/image/logo.png"
-    };
+  onReady() {
+    store.dispatch("station_list/getCenter").then(() => {
+      store.dispatch("station_list/getStations");
+    });
   },
 
   onPullDownRefresh() {
-    store.dispatch("stations/getCenter").then(() => {
-      store.dispatch("stations/getStations");
+    store.dispatch("station_list/getCenter").then(() => {
+      store.dispatch("station_list/getStations");
     });
+  },
+
+  onShareAppMessage(res) {
+    return {
+      title: "附近的公交站",
+      path: "/pages/station_list/main",
+      // imageUrl: "/static/image/logo.png"
+    };
   }
 };
 </script>

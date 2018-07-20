@@ -1,6 +1,6 @@
 /*
- * @Author: erye 
- * @Date: 2018-04-30 16:50:32 
+ * @Author: erye
+ * @Date: 2018-04-30 16:50:32
  * @Last Modified by: erye
  * @Last Modified time: 2018-05-01 22:38:14
  */
@@ -50,7 +50,7 @@ function __getStrategy(strategyIndex) {
   return strategies[strategyIndex].id;
 }
 
-const ListModule = {
+const TransitListModule = {
   namespaced: true,
 
   // 路线页数据
@@ -234,4 +234,4 @@ const ListModule = {
   },
 }
 
-export default ListModule
+export default TransitListModule

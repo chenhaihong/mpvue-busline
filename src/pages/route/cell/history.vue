@@ -67,7 +67,7 @@ export default {
       store.commit("route/updatePlace", { which: "a", place: history.a });
       store.commit("route/updatePlace", { which: "b", place: history.b });
       store.commit("route/navigateToRouteList");
-      store.commit("list/reset");
+      store.commit("transit_list/reset");
     },
     bindClearTap(e) {
       wx.showActionSheet({

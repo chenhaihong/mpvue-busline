@@ -53,10 +53,10 @@ export default {
   },
   computed: {
     isLoading() {
-      return store.state.list.isLoading;
+      return store.state.transit_list.isLoading;
     },
     transits() {
-      return store.state.list.transits.map(item => {
+      return store.state.transit_list.transits.map(item => {
         let fmt_walking_distance = item.walking_distance.length
           ? helpers.formatDistance(item.walking_distance)
           : null;
@@ -73,10 +73,10 @@ export default {
   methods: {
     bindListItemTap(e) {
       const idx = e.currentTarget.dataset.index;
-      store.commit("list/updateTransitIndex", idx);
+      store.commit("transit_list/updateTransitIndex", idx);
 
       wx.navigateTo({
-        url: `/pages/detail/main`
+        url: `/pages/transit_detail/main`
       });
     }
   }

@@ -29,7 +29,9 @@ export default {
 
   methods: {},
 
-  created() {
+  created() {},
+
+  onReady() {
     // load current place
     store.commit("route/clearPlace");
     wx.getLocation({
@@ -51,7 +53,7 @@ export default {
     return {
       title: "快速查询公交地铁路线、附近站点信息，出行好帮手。",
       path: "/pages/route/main",
-      imageUrl: "/static/image/logo.png"
+      // imageUrl: "/static/image/logo.png"
     };
   }
 };

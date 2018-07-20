@@ -1,9 +1,9 @@
 <template>
   <div class="shareBox">
 
-    <div class="line"></div>
+    <!-- <div class="line"></div> -->
 
-    <div class="text">赠人玫瑰，手有余香</div>
+    <!-- <div class="text">赠人玫瑰，手有余香</div> -->
     <!-- <div class="text">Roses given，fragrance in hand.</div> -->
 
     <div class="buttonWrap">

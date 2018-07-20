@@ -23,15 +23,15 @@ export default {
   },
   computed: {
     place() {
-      return store.state.list.place;
+      return store.state.transit_list.place;
     },
     distance() {
-      let dst = store.state.list.distance;
+      let dst = store.state.transit_list.distance;
       return dst ? helpers.formatDistance(dst) : null;
     },
     taxi_cost() {
-      if (store.state.list.taxi_cost) {
-        let cost = parseInt(store.state.list.taxi_cost) || 0;
+      if (store.state.transit_list.taxi_cost) {
+        let cost = parseInt(store.state.transit_list.taxi_cost) || 0;
         return `出租车${cost}元起`;
       } else {
         return null;

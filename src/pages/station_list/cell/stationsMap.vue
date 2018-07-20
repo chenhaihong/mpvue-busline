@@ -1,6 +1,6 @@
 <template>
   <div>
-    <map id="stations_map" :style="{height: height + 'px'}" :longitude="longitude" :latitude="latitude" :scale="scale" show-location :controls="controls" @controltap="controltap" :markers="markers" @markertap="markertap"></map>
+    <map id="stations_map" :style="{height: height + 'px'}" :longitude="longitude" :latitude="latitude" show-location :controls="controls" @controltap="controltap" :markers="markers" @markertap="markertap"></map>
   </div>
 </template>
 
@@ -8,19 +8,20 @@
 import store from "@/store";
 
 export default {
-  oMapCtx: null,
   data() {
     return {
-      scale: 15
+      // 这里不再使用默认scale值，
+      // mpvue的状态管理存在bug，每次 state 数据改变，地图的缩放都会重新进行一次
+      // scale: 15
     };
   },
 
   computed: {
     longitude() {
-      return store.state.stations.centerLocation.longitude;
+      return store.state.station_list.centerLocation.longitude;
     },
     latitude() {
-      return store.state.stations.centerLocation.latitude;
+      return store.state.station_list.centerLocation.latitude;
     },
     height() {
       let sysInfo = wx.getSystemInfoSync();
@@ -52,7 +53,7 @@ export default {
       return controls;
     },
     markers() {
-      return store.getters["stations/highlight_stations"];
+      return store.getters["station_list/highlight_stations"];
     }
   },
 
@@ -62,20 +63,17 @@ export default {
 
       switch (id) {
         case 1: // 定位
-          this.oMapCtx.moveToLocation();
+          wx.createMapContext("stations_map").moveToLocation();
           break;
       }
     },
     markertap(e) {
       const id = e.mp.markerId;
-      store.commit("stations/updateCurrent", id);
+      store.commit("station_list/updateCurrent", id);
     }
   },
 
-  onReady() {
-    this.oMapCtx = wx.createMapContext("stations_map");
-    // store.commit("stations/updateOMap", this.oMapCtx);
-  }
+  onReady() {}
 };
 </script>
 
