@@ -8,7 +8,7 @@
 
     <!-- <view class="listTitle">设置</view> -->
     <view class="list">
-      <view class="item" @click="bindSettingTap">
+      <view class="item">
         <view class="main">设置</view>
         <view class="sub">如果不能查询请点这里，允许使用地址位置</view>
         <button class="button" open-type="openSetting"></button>

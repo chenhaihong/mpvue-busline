@@ -125,9 +125,9 @@ const StationListModule = {
           const poisData = data.poisData;
           const _markers = [];
           markersData.forEach((item, index) => {
-            // if (index > 9) {
-            //   return false;
-            // }
+            if (index > 9) {
+              return false;
+            }
             const poi = poisData[index];
             _markers.push({
               id: index,

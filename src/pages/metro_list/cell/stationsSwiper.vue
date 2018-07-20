@@ -27,7 +27,10 @@ export default {
       return store.state.metro_list.current;
     },
     markers() {
-      return store.state.metro_list.stations;
+      return store.state.metro_list.stations.map(item => {
+        item.distance = helpers.formatDistance(item.distance);
+        return item;
+      });
     }
   },
 
