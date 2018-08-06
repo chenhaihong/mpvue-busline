@@ -162,8 +162,15 @@ const TransitListModule = {
       state.params[name] = value
     },
 
+    // 路线方案列表
     // bus list
-    updateBusList: (state, data) => {
+    updateDistance(state, data) {
+      state.distance = data
+    },
+    updateTaxiCost(state, data) {
+      state.taxi_cost = data
+    },
+    updateTransits: (state, transits) => {
       // const transits = data.transits.map((item) => {
       //   return {
       //     cost: item.cost,
@@ -176,11 +183,10 @@ const TransitListModule = {
       //   }
       // })
 
-      state.distance = data.distance
-      state.taxi_cost = data.taxi_cost
-      state.transits = data.transits
+      state.transits = transits
     },
 
+    // 更新选中的路线方案
     updateTransitIndex: (state, index) => {
       state.transit_index = index
     }
@@ -215,7 +221,18 @@ const TransitListModule = {
             commit('loading', false);
             wx.hideLoading();
 
-            commit('updateBusList', data)
+            commit('updateDistance', data.distance)
+            commit('updateTaxiCost', data.taxi_cost)
+
+            // 为 transit.segments[i].bus 设置默认选中公交路线
+            // 这个值，会在 transit_detail 中使用
+            let transits = data.transits
+            transits.forEach(transit => {
+              transit.segments.forEach(item => {
+                item.bus.busline_index = 0; // 默认选中第一条路线
+              });
+            });
+            commit('updateTransits', transits)
           },
           fail: function (err) {
             commit('loading', false);

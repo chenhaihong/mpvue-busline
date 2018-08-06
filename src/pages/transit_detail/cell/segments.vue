@@ -27,12 +27,12 @@
                 <walking :walking="segment.walking" />
               </template>
               <template v-if="segment.bus && segment.bus.buslines && segment.bus.buslines.length">
-                <bus :busline="segment.bus.buslines[0]" :entrance="segment.entrance" :exit="segment.exit" />
+                <bus :busline="segment.bus.buslines[segment.bus.busline_index]" :segment_index="idx" :entrance="segment.entrance" :exit="segment.exit" />
               </template>
               <template v-if="segment.railway && segment.railway.name">
                 <railway :railway="segment.railway" />
               </template>
-              <template v-if="segment.taxi && segment.taxi.name"></template>
+              <!-- <template v-if="segment.taxi && segment.taxi.name"></template> -->
             </view>
             <!-- } .desc -->
           </view>

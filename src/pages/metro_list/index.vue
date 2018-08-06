@@ -50,7 +50,6 @@ export default {
     return {
       title: "附近的地铁站",
       path: "/pages/metro_list/main",
-      imageUrl: "/static/image/logo.png"
     };
   }
 };

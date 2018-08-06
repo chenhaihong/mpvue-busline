@@ -3,6 +3,7 @@
     <placeInput />
 
     <scroll-view class="scroll" scroll-y enable-back-to-top scroll-with-animation>
+      <collectedPlaces />
       <history />
       <share />
     </scroll-view>
@@ -11,6 +12,7 @@
 
 <script>
 import placeInput from "./cell/placeInput";
+import collectedPlaces from "./cell/collectedPlaces";
 import history from "./cell/history";
 import share from "@/components/share";
 
@@ -23,6 +25,7 @@ export default {
 
   components: {
     placeInput,
+    collectedPlaces,
     history,
     share
   },
@@ -52,7 +55,7 @@ export default {
   onShareAppMessage(res) {
     return {
       title: "快速查询公交地铁路线、附近站点信息，出行好帮手。",
-      path: "/pages/route/main",
+      path: "/pages/route/main"
       // imageUrl: "/static/image/logo.png"
     };
   }

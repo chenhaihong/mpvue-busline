@@ -11,11 +11,17 @@
         <div class="input" data-which="a" @click="bindPlaceInputTap">
           {{aName || "输入起点"}}
         </div>
+        <view v-if="aName" class="clear" data-which="a" @click="bindPlaceClearTap">
+          <image class="icon" src="/static/image/route/clear.png" />
+        </view>
       </div>
       <div class="columnInput--row" :class="{ active: isBOk }">
         <div class="input" data-which="b" @click="bindPlaceInputTap">
           {{bName || "输入终点"}}
         </div>
+        <view v-if="bName" class="clear" data-which="b" @click="bindPlaceClearTap">
+          <image class="icon" src="/static/image/route/clear.png" />
+        </view>
       </div>
     </div>
 
@@ -78,6 +84,13 @@ export default {
             store.commit("route/navigateToRouteList");
           }
         }
+      });
+    },
+    bindPlaceClearTap(e) {
+      let which = e.currentTarget.dataset.which;
+      store.commit("route/updatePlace", {
+        which,
+        place: {}
       });
     },
     bindPlaceSwitcherTap(e) {
@@ -178,8 +191,10 @@ export default {
 }
 
 .columnInput--row .input {
-  width: 450rpx;
+  padding-left: 30rpx;
+  width: 100%;
   height: 100%;
+  box-sizing: border-box;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
@@ -187,6 +202,21 @@ export default {
 
 .columnInput--row.active .input {
   color: #fff;
+}
+
+.columnInput--row .clear {
+  width: 100rpx;
+  height: 80rpx;
+  display: inline-flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.columnInput--row .clear .icon {
+  width: 32rpx;
+  height: 32rpx;
 }
 
 /** .columnSwitch */

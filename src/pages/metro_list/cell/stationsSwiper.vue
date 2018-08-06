@@ -4,7 +4,7 @@
       <swiper-item :key="marker.marker_id">
         <view class="item" :class="{ active: current === idx  }">
           <view class="indicator">{{idx + 1}}/{{markers.length}}</view>
-          <view class="name">{{marker.name}}</view>
+          <view class="name allowTap" @click="bindNameTap">{{marker.name}}</view>
           <view class="distance">距离{{marker.distance}}</view>
         </view>
       </swiper-item>
@@ -35,6 +35,16 @@ export default {
   },
 
   methods: {
+    bindNameTap(e) {
+      let marker = this.markers[this.current];
+      wx.openLocation({
+        latitude: marker.latitude,
+        longitude: marker.longitude,
+        scale: 16,
+        name: marker.name,
+        address: marker.address
+      });
+    },
     bindSwiperChange(e) {
       let current = e.mp.detail.current;
       let source = e.mp.detail.source;
@@ -86,6 +96,7 @@ export default {
       }
       .name {
         color: #4287ff;
+        text-decoration: underline;
       }
       .distance {
         color: #4287ff;

@@ -50,7 +50,6 @@ export default {
     return {
       title: "附近的公交站",
       path: "/pages/station_list/main",
-      // imageUrl: "/static/image/logo.png"
     };
   }
 };
