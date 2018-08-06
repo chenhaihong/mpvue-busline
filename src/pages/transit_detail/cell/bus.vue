@@ -87,7 +87,7 @@ export default {
         wx.openLocation({
           latitude: parseFloat(arr[1]),
           longitude: parseFloat(arr[0]),
-          scale: 16,
+          scale: 14,
           name: dataset.name
         });
       } catch (e) {}

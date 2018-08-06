@@ -40,7 +40,7 @@ export default {
       wx.openLocation({
         latitude: marker.latitude,
         longitude: marker.longitude,
-        scale: 16,
+        scale: 14,
         name: marker.name,
         address: marker.address
       });
