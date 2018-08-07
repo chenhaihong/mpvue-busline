@@ -7,6 +7,7 @@ App.mpType = 'app'
 const app = new Vue(App)
 app.$mount()
 
+const navigationBarTitleText = '公交pro';
 export default {
   // 这个字段走 app.json
   config: {
@@ -26,7 +27,7 @@ export default {
       "backgroundTextStyle": "dark",
       "backgroundColor": "#EFEFEF",
       "navigationBarBackgroundColor": "#4287FF",
-      "navigationBarTitleText": "地铁公交车来了",
+      "navigationBarTitleText": navigationBarTitleText,
       "navigationBarTextStyle": "white"
     },
     "tabBar": {

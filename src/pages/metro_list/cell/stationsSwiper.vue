@@ -70,13 +70,20 @@ export default {
 <style lang="less" scoped>
 .swiper {
   @h: 400rpx;
+  @h_indicator: 50rpx;
+  @h_name: 50rpx;
+  @h_distance: 40rpx;
   @p: 20rpx;
-  margin-bottom: 20rpx;
-  padding-bottom: 1rpx;
-  height: 150rpx + @p + @p + 10;
-  font-size: 32rpx;
-  background: #fff;
-  border-bottom: 1px solid #eee;
+  @color_name: #4287FF;
+  @color_distance: #4287FF;
+  & {
+    margin-bottom: 20rpx;
+    padding-bottom: 1rpx;
+    height: @h_indicator + @h_name + @h_distance + @p + @p + 10;
+    font-size: 32rpx;
+    background: #fff;
+    border-bottom: 1px solid #ccc;
+  }
   .item {
     & {
       margin: @p @p / 2;
@@ -89,30 +96,30 @@ export default {
     }
     &.active {
       background: #fff;
-      border: 1px solid #4287ff;
+      border: 1px solid @color_name;
       .indicator {
         color: #fff;
-        background: #4287ff;
+        background: @color_name;
       }
       .name {
-        color: #4287ff;
+        color: @color_name;
         text-decoration: underline;
       }
       .distance {
-        color: #4287ff;
+        color: @color_distance;
       }
     }
     .indicator {
-      height: 50rpx;
-      line-height: 50rpx;
+      height: @h_indicator;
+      line-height: @h_indicator;
       color: #999;
       background: #dfdfdf;
       overflow: hidden;
     }
     .name {
       margin-top: 10rpx;
-      height: 50rpx;
-      line-height: 50rpx;
+      height: @h_name;
+      line-height: @h_name;
       font-weight: bold;
       color: #323232;
       overflow: hidden;
@@ -121,8 +128,8 @@ export default {
       text-overflow: ellipsis;
     }
     .distance {
-      height: 40rpx;
-      line-height: 40rpx;
+      height: @h_distance;
+      line-height: @h_distance;
       font-size: 30rpx;
       color: #999;
     }

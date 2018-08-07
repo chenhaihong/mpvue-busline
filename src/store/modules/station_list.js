@@ -114,11 +114,16 @@ const StationListModule = {
       });
     },
     getStations: ({ state, commit }) => {
+      wx.showLoading({
+        title: '加载中'
+      });
+
       let center = state.centerLocation
       // 获取站点数据
       aMap.getPoiAround({
         querykeywords: '公交站',
         success: (data) => {
+          wx.hideLoading();
           wx.stopPullDownRefresh();
 
           const markersData = data.markers;
@@ -176,6 +181,7 @@ const StationListModule = {
           }
         },
         fail: function (info) {
+          wx.hideLoading();
           wx.stopPullDownRefresh();
           wx.showModal({ title: info.errMsg });
         }
