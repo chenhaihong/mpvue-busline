@@ -45,9 +45,7 @@ export default {
   onReady() {},
 
   onPullDownRefresh() {
-    store.dispatch("metro_list/getCenter").then(() => {
-      store.dispatch("metro_list/getStations");
-    });
+    store.dispatch("metro_list/getStations");
   },
 
   onShareAppMessage(res) {

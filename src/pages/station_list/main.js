@@ -6,7 +6,7 @@ app.$mount()
 
 export default {
   config: {
-    "navigationBarTitleText": "附近公交站",
+    "navigationBarTitleText": "公交站",
     "enablePullDownRefresh": true,
   }
 }
