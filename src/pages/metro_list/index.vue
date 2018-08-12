@@ -35,12 +35,18 @@ export default {
   methods: {},
 
   created() {
+    // store.dispatch("metro_list/getCenter").then(() => {
+    //   store.dispatch("metro_list/getStations");
+    // });
+  },
+
+  onShow() {},
+
+  onLoad() {
     store.dispatch("metro_list/getCenter").then(() => {
       store.dispatch("metro_list/getStations");
     });
   },
-
-  onShow() {},
 
   onReady() {},
 

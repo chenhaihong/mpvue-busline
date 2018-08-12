@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <view>
     <!--
       组件对象一致常驻内存，不会被销毁。
 
@@ -13,20 +13,23 @@
 
       因此，这里先做一层判断，判断 transit 是否存在，如果不存在则不使用组件。
     -->
-    <!-- <overview v-if="is_transit" /> -->
-    <segments v-if="is_transit" />
-    <view class='mb30'></view>
-    <share />
-    <view class='pb40'></view>
-  </div>
+    <tab />
+    <template v-if="is_map_visible">
+      <mmap />
+    </template>
+    <template v-else>
+      <segments v-if="is_transit" />
+      <share />
+      <view class='pb40'></view>
+    </template>
+  </view>
 </template>
 
 <script>
 import store from "@/store";
-
-// import overview from "./cell/overview";
+import tab from "./cell/tab";
+import mmap from "./cell/map";
 import segments from "./cell/segments";
-
 import share from "@/components/share";
 
 export default {
@@ -35,6 +38,9 @@ export default {
   },
 
   computed: {
+    is_map_visible() {
+      return store.state.transit_detail.selected === 1;
+    },
     is_transit() {
       let index = store.state.transit_list.transit_index;
       let transit = store.state.transit_list.transits[index];
@@ -43,7 +49,8 @@ export default {
   },
 
   components: {
-    // overview,
+    tab,
+    mmap,
     segments,
     share
   },
@@ -54,12 +61,14 @@ export default {
   onShareAppMessage(res) {
     return {
       title: "公交查询小帮手",
-      path: "/pages/route/main",
-      // imageUrl: "/static/image/logo.png"
+      path: "/pages/route/main"
     };
   }
 };
 </script>
 
 <style lang="less">
+page {
+  padding-top: 50px;
+}
 </style>

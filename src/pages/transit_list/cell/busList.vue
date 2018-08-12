@@ -74,6 +74,8 @@ export default {
     bindListItemTap(e) {
       const idx = e.currentTarget.dataset.index;
       store.commit("transit_list/updateTransitIndex", idx);
+      store.commit("transit_detail/updateSelected", 0);
+      store.commit("transit_detail/resetMap");
 
       wx.navigateTo({
         url: `/pages/transit_detail/main`

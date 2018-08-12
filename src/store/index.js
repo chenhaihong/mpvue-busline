@@ -5,6 +5,7 @@ import Vuex from 'vuex'
 
 import RouteModule from './modules/route'
 import TransitListModule from './modules/transit_list'
+import TransitDetailModule from './modules/transit_detail'
 import StationListModule from './modules/station_list'
 import MetroListModule from './modules/metro_list'
 
@@ -14,6 +15,7 @@ const store = new Vuex.Store({
   modules: {
     route: RouteModule,
     transit_list: TransitListModule,
+    transit_detail: TransitDetailModule,
     station_list: StationListModule,
     metro_list: MetroListModule,
   },

@@ -9,7 +9,11 @@
           <view class="lineB"></view>
         </view>
         <view class="desc">
-          <view class="text">从 {{place.a.name}} 出发</view>
+          <view class="text">
+            <text>从</text>
+            <text class="place-a-name">{{place.a.name}}</text>
+            <text>出发</text>
+          </view>
         </view>
       </view>
       <!-- } 出发点 -->
@@ -48,7 +52,10 @@
           <view class="lineB"></view>
         </view>
         <view class="desc">
-          <view class="text">到达 {{place.b.name}}</view>
+          <view class="text">
+            <text>到达</text>
+            <text class="place-b-name">{{place.b.name}}</text>
+          </view>
         </view>
       </view>
       <!-- } 结束点 -->
@@ -101,6 +108,8 @@ export default {
 .listBox {
   & {
     display: relative;
+    margin-top: 20rpx;
+    margin-bottom: 40rpx;
     padding: 20rpx 0;
     background-color: #fff;
   }
@@ -133,15 +142,28 @@ export default {
       }
 
       .desc {
-        position: relative;
-        display: inline-flex;
-        /* margin-right: 30rpx; */
-        padding: 24rpx 0;
-        width: 100%;
-        flex-flow: column nowrap;
-        align-items: flex-start;
-        justify-content: flex-start;
-        border-bottom: 1px dashed #e1e1e1;
+        & {
+          position: relative;
+          display: inline-flex;
+          // margin-right: 30rpx;
+          padding: 24rpx 0;
+          width: 100%;
+          flex-flow: column nowrap;
+          align-items: flex-start;
+          justify-content: flex-start;
+          border-bottom: 1px dashed #e1e1e1;
+        }
+
+        .place-a-name {
+          margin: 0 10rpx;
+          // font-size: 24rpx;
+          // color: #4287ff;
+        }
+        .place-b-name {
+          margin: 0 10rpx;
+          // font-size: 24rpx;
+          // color: #f4040d;
+        }
       }
 
       .timeline {

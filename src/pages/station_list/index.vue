@@ -35,13 +35,18 @@ export default {
   methods: {},
 
   created() {
-    store.dispatch("station_list/getCenter").then(() => {
-      store.dispatch("station_list/getStations");
-    });
+    // store.dispatch("station_list/getCenter").then(() => {
+    //   store.dispatch("station_list/getStations");
+    // });
   },
 
   onShow() {},
 
+  onLoad() {
+    store.dispatch("station_list/getCenter").then(() => {
+      store.dispatch("station_list/getStations");
+    });
+  },
   onReady() {},
 
   onPullDownRefresh() {
