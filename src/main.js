@@ -7,17 +7,17 @@ App.mpType = 'app'
 const app = new Vue(App)
 app.$mount()
 
-const navigationBarTitleText = '公交pro';
+
 export default {
   // 这个字段走 app.json
   config: {
     // 页面前带有 ^ 符号的，会被编译成首页，其他页面可以选填，我们会自动把 webpack entry 里面的入口页面加进去
     "pages": [
-      "^pages/route/main",
+      "pages/route/main",
       "pages/transit_list/main",
       "pages/transit_detail/main",
 
-      "pages/station_list/main",
+      "^pages/station_list/main",
 
       "pages/metro_list/main",
 
@@ -27,7 +27,7 @@ export default {
       "backgroundTextStyle": "dark",
       "backgroundColor": "#EFEFEF",
       "navigationBarBackgroundColor": "#4287FF",
-      "navigationBarTitleText": navigationBarTitleText,
+      "navigationBarTitleText": "公交pro",
       "navigationBarTextStyle": "white"
     },
     "tabBar": {

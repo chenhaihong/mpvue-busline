@@ -2,11 +2,11 @@
   <div>
     <placeInput />
 
-    <scroll-view class="scroll" scroll-y enable-back-to-top scroll-with-animation>
-      <collectedPlaces />
-      <history />
-      <share />
-    </scroll-view>
+    <!-- <scroll-view class="scroll" scroll-y enable-back-to-top scroll-with-animation> -->
+    <collectedPlaces />
+    <history />
+    <share />
+    <!-- </scroll-view> -->
   </div>
 </template>
 

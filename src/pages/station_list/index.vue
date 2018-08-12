@@ -1,17 +1,15 @@
 <template>
-  <view>
-    <StationsMap />
-    <StationsSwiper />
-    <StationDetail />
+  <view v-if="visible">
+    <Choose />
+    <MakerList :markers="markers" />
     <Share />
   </view>
 </template>
 
 <script>
 import Share from "@/components/share";
-import StationsMap from "./cell/stationsMap";
-import StationsSwiper from "./cell/stationsSwiper";
-import StationDetail from "./cell/stationDetail";
+import MakerList from "@/components/makerList";
+import Choose from "./cell/choose";
 import store from "@/store";
 
 export default {
@@ -19,26 +17,32 @@ export default {
     return {};
   },
 
-  computed: {},
+  computed: {
+    markers() {
+      return store.state.station_list.stations;
+    },
+    visible() {
+      return store.state.station_list.stations.length > 0;
+    }
+  },
 
   components: {
     Share,
-    StationsMap,
-    StationsSwiper,
-    StationDetail
+    MakerList,
+    Choose
   },
 
   methods: {},
 
-  created() {},
-
-  onShow() {},
-
-  onReady() {
+  created() {
     store.dispatch("station_list/getCenter").then(() => {
       store.dispatch("station_list/getStations");
     });
   },
+
+  onShow() {},
+
+  onReady() {},
 
   onPullDownRefresh() {
     store.dispatch("station_list/getCenter").then(() => {
@@ -49,7 +53,7 @@ export default {
   onShareAppMessage(res) {
     return {
       title: "附近的公交站",
-      path: "/pages/station_list/main",
+      path: "/pages/station_list/main"
     };
   }
 };

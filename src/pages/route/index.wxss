@@ -2,7 +2,6 @@ page {
   padding-top: 220rpx;
   overflow-x: hidden;
 }
-
 .place {
   z-index: 100;
   position: fixed;
@@ -12,7 +11,6 @@ page {
   color: #fff;
   background: #4287ff;
 }
-
 .shadow {
   z-index: 99;
   position: fixed;
@@ -21,12 +19,3 @@ page {
   background: #000;
   opacity: 0.3;
 }
-
-// .scroll {
-//   position: fixed;
-//   top: 220rpx;
-//   left: 0;
-//   right: 0;
-//   bottom: 0;
-//   width: 100%;
-// }
