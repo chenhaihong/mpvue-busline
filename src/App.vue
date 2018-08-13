@@ -1,6 +1,13 @@
 <script>
 export default {
-  created() {}
+  created() {},
+
+  onPageNotFound() {
+    // 1.添加onPageNotFound时跳往首页
+    wx.switchTab({
+      url: "/pages/route/main"
+    });
+  }
 };
 </script>
 

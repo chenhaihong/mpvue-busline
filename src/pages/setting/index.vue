@@ -28,6 +28,13 @@
       </view>
     </view>
 
+    <view class="list">
+      <view class="item" @click="bindDonateTap">
+        <view class="main">捐助</view>
+        <view class="sub">赠人玫瑰，手有余香</view>
+      </view>
+    </view>
+
     <!-- <view class="listTitle">新功能</view>
     <view class="list">
       <view class="item" @click="bindSoterTap">
@@ -83,6 +90,21 @@ export default {
         itemList: ["清空"],
         itemColor: "#FF3B30",
         success
+      });
+    },
+
+    bindDonateTap() {
+      const content =
+        "该应用属于免费应用，但维护也需要经费，有意者可以对开发者进行捐助！";
+      wx.showModal({
+        title: "提示",
+        content,
+        showCancel: false,
+        success: function(res) {
+          wx.previewImage({
+            urls: ["https://www.tiiit.cn/images/donate.jpg"]
+          });
+        }
       });
     }
 
