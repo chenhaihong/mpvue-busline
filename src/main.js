@@ -65,6 +65,11 @@ export default {
     },
     "networkTimeout": {
       "request": 60000
+    },
+    "permission": {
+      "scope.userLocation": {
+        "desc": "用于提供精准的定位和公交路线规划服务"
+      }
     }
   }
 }
